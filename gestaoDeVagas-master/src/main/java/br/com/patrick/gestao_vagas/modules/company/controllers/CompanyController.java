@@ -9,17 +9,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.patrick.gestao_vagas.modules.UseCases.CreateCompanyUseCase;
 import br.com.patrick.gestao_vagas.modules.company.entities.CompanyEntity;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/company")
 public class CompanyController {
     
-    @Autowired
-    private CreateCompanyUseCase createCompanyUseCase;
+    private final CreateCompanyUseCase createCompanyUseCase;
+
+
+    CompanyController(CreateCompanyUseCase createCompanyUseCase) {
+        this.createCompanyUseCase = createCompanyUseCase;
+    }
 
     
     @PostMapping("/")
-    public ResponseEntity<Object> create(@RequestBody CompanyEntity companyEntity) {
+    public ResponseEntity<Object> create(@Valid @RequestBody CompanyEntity companyEntity) {
         try {
             var result = this.createCompanyUseCase.execute(companyEntity);
             return ResponseEntity.ok().body(result);
