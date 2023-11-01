@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Entity(name = "job")
@@ -21,6 +23,11 @@ public class JobEntity {
     private String description;
     private String benefits;
     private String level;
+
+
+    @ManyToOne()
+    @JoinColumn(name = "company_id")
+    private CompanyEntity companyEntity;
 
     private UUID companyId;
 
