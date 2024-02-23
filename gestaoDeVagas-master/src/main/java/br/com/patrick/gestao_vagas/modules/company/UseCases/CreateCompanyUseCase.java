@@ -1,4 +1,4 @@
-package br.com.patrick.gestao_vagas.modules.UseCases;
+package br.com.patrick.gestao_vagas.modules.company.UseCases;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

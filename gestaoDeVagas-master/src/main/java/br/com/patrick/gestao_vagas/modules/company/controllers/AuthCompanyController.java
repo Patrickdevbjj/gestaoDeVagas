@@ -2,7 +2,7 @@ package br.com.patrick.gestao_vagas.modules.company.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.patrick.gestao_vagas.modules.UseCases.AuthCompanyUseCase;
+import br.com.patrick.gestao_vagas.modules.company.UseCases.AuthCompanyUseCase;
 import br.com.patrick.gestao_vagas.modules.company.dto.AuthCompanyDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;

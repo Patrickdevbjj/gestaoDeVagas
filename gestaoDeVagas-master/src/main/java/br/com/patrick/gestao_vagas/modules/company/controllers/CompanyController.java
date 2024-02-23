@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.patrick.gestao_vagas.modules.UseCases.CreateCompanyUseCase;
+import br.com.patrick.gestao_vagas.modules.company.UseCases.CreateCompanyUseCase;
 import br.com.patrick.gestao_vagas.modules.company.entities.CompanyEntity;
 import jakarta.validation.Valid;
 

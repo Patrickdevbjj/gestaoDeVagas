@@ -1,4 +1,4 @@
-package br.com.patrick.gestao_vagas.modules.UseCases;
+package br.com.patrick.gestao_vagas.modules.candidate.useCases;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.patrick.gestao_vagas.exceptions.UserFoundException;
 import br.com.patrick.gestao_vagas.modules.candidate.CandidateEntity;
-import br.com.patrick.gestao_vagas.modules.candidate.controllers.CandidateRepository;
+import br.com.patrick.gestao_vagas.modules.candidate.controllers.repositories.CandidateRepository;
 
 @Service
 public class CreateCandidateUseCase {

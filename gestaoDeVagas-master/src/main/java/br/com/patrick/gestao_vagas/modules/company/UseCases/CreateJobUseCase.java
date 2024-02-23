@@ -1,4 +1,4 @@
-package br.com.patrick.gestao_vagas.modules.UseCases;
+package br.com.patrick.gestao_vagas.modules.company.UseCases;
 
 import org.springframework.stereotype.Service;
 

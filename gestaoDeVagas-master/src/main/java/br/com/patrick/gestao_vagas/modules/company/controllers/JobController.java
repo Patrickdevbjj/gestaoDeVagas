@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.patrick.gestao_vagas.modules.UseCases.CreateJobUseCase;
+import br.com.patrick.gestao_vagas.modules.company.UseCases.CreateJobUseCase;
 import br.com.patrick.gestao_vagas.modules.company.dto.CreateJobDTO;
 import br.com.patrick.gestao_vagas.modules.company.entities.JobEntity;
 import jakarta.servlet.http.HttpServletRequest;
