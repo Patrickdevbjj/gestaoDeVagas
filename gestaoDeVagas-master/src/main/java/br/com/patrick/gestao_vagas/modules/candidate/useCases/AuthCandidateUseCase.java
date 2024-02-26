@@ -28,6 +28,7 @@ public class AuthCandidateUseCase {
     @Autowired
     private CandidateRepository candidateRepository;
 
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -45,11 +46,12 @@ public class AuthCandidateUseCase {
         }
         
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
+        var expiresIn = Instant.now().plus(Duration.ofHours(2));
         var token = JWT.create()
         .withIssuer("Javagas")
         .withSubject(candidate.getId().toString())
         .withClaim("roles", Arrays.asList("candidate"))
-        .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
+        .withExpiresAt(expiresIn)
         .sign(algorithm);
 
         var authCandidateResponse = AuthCandidateResponseDTO.builder()
