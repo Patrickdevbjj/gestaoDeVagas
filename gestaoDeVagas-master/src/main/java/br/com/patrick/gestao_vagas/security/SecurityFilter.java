@@ -1,7 +1,6 @@
 package br.com.patrick.gestao_vagas.security;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,20 +27,23 @@ public class SecurityFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(null);
                 String header = request.getHeader("authorization");
                 
-                if (header != null) {
-                    var subjectToken = this.jwtProvider.validateToken(header);
-                    if (subjectToken.isEmpty()) {
-                        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                        return;
+                if (request.getRequestURI().startsWith("/company")) {
+                    if (header != null) {
+                        var subjectToken = this.jwtProvider.validateToken(header);
+                        if (subjectToken.isEmpty()) {
+                            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                            return;
+                        }
+                        request.setAttribute("company_id", response);
+                        UsernamePasswordAuthenticationToken auth = 
+                        new UsernamePasswordAuthenticationToken(subjectToken, null, Collections.emptyList());
+                        SecurityContextHolder.getContext().setAuthentication(auth);
                     }
-                    request.setAttribute("company_id", response);
-                    UsernamePasswordAuthenticationToken auth = 
-                    new UsernamePasswordAuthenticationToken(subjectToken, null, Collections.emptyList());
-                    SecurityContextHolder.getContext().setAuthentication(auth);
-                }   
+                }
+
+                   
 
                 filterChain.doFilter(request, response);
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'doFilterInternal'");
     }
     
