@@ -11,7 +11,7 @@ import br.com.patrick.gestao_vagas.modules.company.entities.CompanyEntity;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/company/job")
 public class CompanyController {
     
     private final CreateCompanyUseCase createCompanyUseCase;
